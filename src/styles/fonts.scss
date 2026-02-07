@@ -1,0 +1,229 @@
+// Start Font-Face
+@font-face {
+  font-family: Cairo-SemiBold;
+  src: url("../assets/fonts/Cairo-SemiBold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Cairo-Medium;
+  src: url("../assets/fonts/Cairo-Medium.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Cairo-Regular;
+  src: url("../assets/fonts/Cairo-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Cairo-Bold;
+  src: url("../assets/fonts/Cairo-Bold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Cairo-Light;
+  src: url("../assets/fonts/Cairo-Light.ttf");
+  font-display: swap;
+}
+
+// END Font-Face
+// font sizes [Cairo-Regular] === Start
+.font-Regular-s12 {
+  font-size: 12px !important;
+  font-family: Cairo-Regular;
+}
+
+.font-Regular-s14 {
+  font-size: 14px !important;
+  font-family: Cairo-Regular;
+  font-style: normal;
+
+  @media (max-width: 992px) {
+    font-size: 12px !important;
+  }
+}
+
+.font-Regular-s16 {
+  font-size: 16px !important;
+  font-family: Cairo-Regular;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+.font-Regular-s18 {
+  font-size: 18px !important;
+  font-family: Cairo-Regular;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+.font-Regular-s16-s12 {
+  font-size: 16px !important;
+  font-family: Cairo-Regular;
+
+  @media (max-width: 992px) {
+    font-size: 12px !important;
+  }
+}
+
+.font-Regular-s16-s10 {
+  font-size: 16px !important;
+  font-family: Cairo-Regular;
+
+  @media (max-width: 992px) {
+    font-size: 10px !important;
+  }
+}
+
+.font-Regular-s20 {
+  font-size: 20px !important;
+  font-family: Cairo-Regular;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+.font-Regular-s24 {
+  font-size: 24px !important;
+  font-family: Cairo-Regular;
+  font-style: normal;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+// font sizes [Cairo-SemiBold] === End
+// font sizes [Cairo-SemiBold] === Start
+.font-SemiBold-s14 {
+  font-size: 14px !important;
+  font-family: Cairo-SemiBold;
+}
+
+.font-SemiBold-s16 {
+  font-size: 16px !important;
+  font-family: Cairo-SemiBold;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+.font-SemiBold-s18 {
+  font-size: 18px !important;
+  font-family: Cairo-SemiBold;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+.font-SemiBold-s20 {
+  font-size: 20px !important;
+  font-family: Cairo-SemiBold;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+.font-SemiBold-s24 {
+  font-size: 24px !important;
+  font-family: Cairo-SemiBold;
+
+  @media (max-width: 992px) {
+    font-size: 18px !important;
+  }
+}
+
+.font-SemiBold-s32 {
+  font-size: 32px !important;
+  font-family: Cairo-SemiBold;
+}
+
+.font-SemiBold-s40 {
+  font-size: 40px !important;
+  font-family: Cairo-SemiBold;
+}
+
+.font-SemiBold-s40-s-16 {
+  font-size: 40px !important;
+  font-family: Cairo-SemiBold;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+// font sizes [Cairo-SemiBold] === End
+// font sizes [Cairo-Medium] === Start
+.font-Medium-s14 {
+  font-size: 14px !important;
+  font-family: Cairo-Medium;
+
+  @media (max-width: 992px) {
+    font-size: 12px !important;
+  }
+}
+
+.font-Medium-s16 {
+  font-size: 16px !important;
+  font-family: Cairo-Medium;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+// font sizes [Cairo-Medium] === End
+// font sizes [Cairo-Bold] === Start
+.font-Bold-s16 {
+  font-size: 16px !important;
+  font-family: Cairo-Bold;
+
+  @media (max-width: 992px) {
+    font-size: 12px !important;
+  }
+}
+
+.font-Bold-s16-s14 {
+  font-size: 16px !important;
+  font-family: Cairo-Bold;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+.font-Bold-s18 {
+  font-size: 18px !important;
+  font-family: Cairo-Bold;
+
+  @media (max-width: 992px) {
+    font-size: 14px !important;
+  }
+}
+
+.font-Bold-s20 {
+  font-size: 20px !important;
+  font-family: Cairo-Bold;
+}
+
+.font-Bold-s24 {
+  font-size: 24px !important;
+  font-family: Cairo-Bold;
+
+  @media (max-width: 992px) {
+    font-size: 16px !important;
+  }
+}
+
+// font sizes [Cairo-Bold] === End

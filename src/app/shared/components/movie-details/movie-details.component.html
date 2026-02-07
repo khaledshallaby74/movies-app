@@ -1,0 +1,99 @@
+<div class="movie-details-container text-white min-vh-100" 
+     [style.backgroundImage]="'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original' + postDetails?.backdrop_path + ')'">
+    
+    <div class="container py-5">
+        <div *ngIf="postDetails?.first_air_date || postDetails?.release_date" class="row pt-5">
+            <div class="col-md-4 mb-4 text-center">
+                <img [src]="imgPrifix + (postDetails.poster_path || postDetails.profile_path)" 
+                     class="img-fluid rounded-4 shadow-lg Border-support1-s4" 
+                     [alt]="postDetails?.name">
+            </div>
+
+            <div class="col-md-8">
+                <h1 class="display-4 fw-bold mb-1">{{postDetails.name || postDetails.original_title}}</h1>
+                <p class="text-secondary fst-italic mb-3">{{ postDetails?.tagline }}</p>
+
+                <div class="d-flex align-items-center flex-wrap gap-3 mb-4">
+                    <span class="badge bg-warning text-dark px-3 py-2">
+                        <i class="fas fa-star me-1"></i> {{ postDetails?.vote_average | number:'1.1-1' }}
+                    </span>
+                    <span class="text-white-50 border-start ps-3">{{ postDetails?.first_air_date || postDetails?.release_date  | date:'yyyy' }}</span>
+                    <span *ngIf="postDetails?.number_of_seasons" class="badge bg-outline-light border px-3 py-2">{{ postDetails?.number_of_seasons }} Seasons</span>
+                    <span class="badge bg-danger px-3 py-2">{{ postDetails?.status }}</span>
+                </div>
+
+                <div class="mb-4">
+                    <h5 class="text-support1">Overview</h5>
+                    <p class="lead fs-6 text-white-opacity-75">{{ postDetails?.overview }}</p>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6 class="text-support1 mb-1">Genres</h6>
+                        <span *ngFor="let genre of postDetails?.genres" class="me-2 text-support2">#{{ genre.name }}</span>
+                    </div>
+                    <div *ngIf="postDetails?.created_by" class="col-sm-6">
+                        <h6 class="text-secondary mb-1">Created By</h6>
+                        <span *ngFor="let creator of postDetails?.created_by" class="me-2">{{ creator.name }}</span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <a [href]="postDetails?.homepage" target="_blank" class="btn bg-support1 px-4 py-2 rounded-pill">
+                        <i class="fas fa-play me-2"></i> Watch on Netflix
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="postDetails?.seasons" class="mt-5 pt-5">
+            <h3 class="mb-4 Border-b-lightBlack-s1 text-support1 pb-2">Seasons</h3>
+            <div class="row g-3 align-items-center ">
+                <div class="col-lg-2 col-md-3 col-6" *ngFor="let season of postDetails?.seasons">
+                    <div class="rounded-3 position-relative px-0 pb-3 bg-secondry mb-5 Border-support1-s2 cursor-click">  
+                        <a  [routerLink]="['/tv', postDetails.id, 'season', season.season_number]" >
+                            <img [src]="imgPrifix + season.poster_path" class="card-img-top " alt="...">
+                            <div class="p-2">
+                                <h3 class="font-Regular-s16-s10 text-white m-0">{{ season.name }}</h3>
+                                <p class="card-text small text-support1">{{ season.episode_count }} Episodes</p>
+                            </div>
+                            <div class="vote bg-support1 p-1 font-Bold-s16-s14 text-white position-absolute end-0 top-0"> {{season.vote_average| number:'1.1-1' }}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="postDetails?.biography" class="row pt-5 align-items-center fade-in">
+            <div class="col-md-4 mb-4 text-center">
+                <div class="person-img-container shadow-lg">
+                    <img [src]="'https://image.tmdb.org/t/p/w500' + postDetails?.profile_path" 
+                         class="img-fluid border-f-radius-s50 Border-support1-s4 p-1" 
+                         [alt]="postDetails?.name">
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <span class="badge bg-support1 mb-2">{{ postDetails?.known_for_department }}</span>
+                <h1 class="display-3 fw-bold mb-3">{{ postDetails?.name }}</h1>
+                
+                <div class="d-flex flex-wrap gap-4 mb-4 text-white-50">
+                    <div><i class="fas fa-birthday-cake me-2 text-support1"></i>Born: {{ postDetails?.birthday | date }}</div>
+                    <div *ngIf="postDetails?.deathday"><i class="fas fa-skull me-2 text-danger"></i>Died: {{ postDetails?.deathday | date }}</div>
+                    <div><i class="fas fa-map-marker-alt me-2 text-success"></i>{{ postDetails?.place_of_birth }}</div>
+                </div>
+
+                <div class="bio-card p-4 rounded-4 bg-dark bg-opacity-50 border border-secondary">
+                    <h4 class="text-support1 mb-3">Biography</h4>
+                    <p class="lh-lg">{{ postDetails?.biography }}</p>
+                </div>
+
+                <div class="mt-4">
+                  <h6 class="text-support1">Also Known As:</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span *ngFor="let name of postDetails?.also_known_as" class="badge bg-secondary opacity-75">{{ name }}</span>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

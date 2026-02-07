@@ -1,0 +1,37 @@
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+a{
+    text-decoration: none !important;
+    color: #fff !important;
+}
+// scrollbar [Block] ==> Start
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    // background: #4B0D62;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #ddd;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+// scrollbar [Block] ==> End
+body{
+    overflow-x: hidden;
+    background-color: #131722 !important;
+}
+
+.no-scroll {
+    overflow: hidden;
+  }
+
+
+

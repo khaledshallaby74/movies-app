@@ -1,0 +1,25 @@
+
+
+<div class="row gap-3 justify-content-center">
+    <div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
+        <h2 class="text-white align-self-start Border-t-lightBlack-s1 pt-3">Trending Movies And Series<br/> To Watch Now</h2>
+        <p class="text-white-opacity-70 align-self-start Border-b-lightBlack-s1 pb-3">Most Watched {{title}} by Days</p>
+    </div>
+
+    <div class="col-md-2 rounded-3 position-relative px-0 pb-3 bg-secondry mb-5" *ngFor="let post of posts | paginate: { 
+        id: 'main_pagination', 
+        itemsPerPage: 20, 
+        currentPage: currentPage, 
+        totalItems: totalItems > 10000 ? 10000 : totalItems}">
+        <div class="position-relative">
+            <a [routerLink]="['/', post.media_type, post.id, slugify(post.name || post.original_title || '')]">
+                <img [src]="imgPrifix + (post.poster_path || post.profile_path)" class="w-100 mb-2" alt="">
+                <h3 class="ms-2 font-Regular-s16-s10 text-white m-0">{{post.name || post.original_title}}</h3>
+                <div class="vote bg-support1 p-1 font-Bold-s16-s14 text-white position-absolute end-0 top-0">
+                    {{post.vote_average || post.popularity | number:'1.1-1' }}
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+

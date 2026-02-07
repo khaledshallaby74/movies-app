@@ -1,0 +1,157 @@
+// START === General
+.cursor-click {
+  cursor: pointer;
+}
+swiper-container {
+    overflow: visible !important; /* بيخلي الصور اللي برا الـ Container تبان */
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+.text-ellipsis{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.overflow-ellipsis{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  direction: ltr;
+}
+.form-control:focus {
+    color: #3a459e !important;
+    background-color: #fff;
+    border-color: none !important;
+    outline: unset !important;
+}
+.headerLogo{
+    font-size: 38px;
+    font-family: Bevan;
+    line-height: 32px;
+    display: inline-block;
+    padding-top: 8px;
+}
+.ngx-pagination .current{
+    background: #3a459e !important; 
+
+}
+.ngx-pagination a:hover{
+      background: #3a459e !important; 
+
+}
+
+// END === General
+
+
+
+// START === Border Radius
+.border-f-radius-s5 {
+  border-radius: 5px;
+}
+
+.border-b-radius-s5 {
+  border-radius: 0px 0px 5px 5px !important;
+}
+
+.border-t-radius-s5 {
+  border-radius: 5px 5px 0px 0px !important;
+}
+
+.border-b-radius-s10 {
+  border-radius: 0px 0px 10px 10px !important;
+}
+
+.border-f-radius-s10 {
+  border-radius: 10px;
+}
+
+.border-r-radius-s10 {
+  border-radius: 0 10px 10px 0;
+}
+
+.border-t-radius-s10 {
+  border-radius: 10px 10px 0px 0px !important;
+}
+
+.border-f-radius-s8 {
+  border-radius: 8px;
+}
+
+.border-f-radius-s15 {
+  border-radius: 15px;
+}
+.border-f-radius-s16 {
+  border-radius: 16px;
+}
+.border-f-radius-s20 {
+  border-radius: 20px;
+}
+
+.border-f-radius-s28 {
+  border-radius: 28px;
+}
+
+.border-r-radius-s50 {
+  border-radius: 50px 0 0 50px;
+}
+
+.border-r-radius-s8 {
+  border-radius: 8px 0 0 8px;
+}
+
+.border-f-radius-s50 {
+  border-radius: 50px;
+}
+
+// END === Border Radius
+
+// START === Border 
+.Border-lightBlack-s1 {
+  border: 1px solid #a8a8a83d;
+}
+.Border-t-lightBlack-s1 {
+  border-top: 1px solid #a8a8a83d;
+}
+.Border-b-lightBlack-s1 {
+  border-bottom: 1px solid #a8a8a83d;
+}
+.Border-b-support1-s1 {
+  border-bottom: 1px solid #3a459e !important;
+}
+.Border-b-support1-s3 {
+  border-bottom: 3px solid #3a459e !important;
+}
+.Border-support1-s4 {
+  border: 4px solid #3a459e !important;
+}
+.Border-support1-s2 {
+  border: 2px solid #3a459e !important;
+}
+// END === Border 
+
+// Text-Line-height
+.line-height-15 {
+  line-height: 1.5rem;
+}
+
+.line-height-2 {
+  line-height: 2rem;
+}
+
+.line-weight-1 {
+  font-weight: 600;
+}
+
+.line-height-2 {
+  line-height: 2rem;
+}
+
+.line-weight-1 {
+  font-weight: 600;
+}
+.min-w-fit{
+  min-width: fit-content;
+}
+.w-fit-content{
+  width: fit-content;
+}

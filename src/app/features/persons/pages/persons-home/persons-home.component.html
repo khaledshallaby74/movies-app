@@ -1,0 +1,4 @@
+<app-header [posts]="allPersons"></app-header>
+
+<app-posts [posts]="allPersons" [title]="title"  [currentPage]="pageNumber" [totalItems]="totalPages" ></app-posts>
+<app-pagination (pageChanged)="loadData($event)"></app-pagination>

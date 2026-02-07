@@ -1,0 +1,76 @@
+<div class="w-75 mx-auto py-5">
+    <!-- Page title -->
+    <h2 class="text-white mb-4">Register Now</h2>
+    <div *ngIf="error" class="alert alert-danger m-2">{{error}}</div>
+    <!-- Reactive form binding + submit handler -->
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm(registerForm)">
+        <!-- ================= name ================= -->
+        <label class="text-white mb-1" for="name">name:</label>
+        <input formControlName="name" class="form-control mb-3" type="text">
+        <!-- name validation messages -->
+        <div *ngIf="validate('name')" class="invalid-feedback d-block">
+            <p *ngIf="registerForm.get('name')?.errors?.['required']">First Name is required</p>
+            <p *ngIf="registerForm.get('name')?.errors?.['minlength']">
+                Please enter at least <strong>{{ registerForm.get('name')?.errors?.['minlength'].requiredLength }}</strong> characters.
+            </p>           
+            <p *ngIf="registerForm.get('name')?.errors?.['maxlength']">
+                Maximum <strong>{{registerForm.get('name')?.errors?.['maxlength'].requiredLength}}</strong> characters.
+            </p>
+        </div>
+        <!-- ================= Email ================= -->
+        <label class="text-white mb-1" for="email">Email:</label>
+        <input formControlName="email" class="form-control mb-3" type="email">
+        <!-- Email validation messages -->
+        <div *ngIf="validate('email')" class="invalid-feedback d-block">
+            <p *ngIf="registerForm.get('email')?.errors?.['required']">email is required</p>
+            <p *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email.</p> 
+       </div>
+       <!-- ================= Password ================= -->
+        <label class="text-white mb-1" for="password">Password:</label>
+        <div class="input-group mb-3">
+            <input class="input-group form-control mb-3" formControlName="password" [type]="isPasswordVisible ? 'text' : 'password'">
+            <!-- Toggle button Show / Hide Password -->
+            <button type="button" class="h-100 btn btn-outline-secondary" (click)="togglePasswordVisibility()" aria-label="Toggle password visibility" >
+                <i class="fa" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+        </div>        
+        <!-- Password validation messages -->
+        <div *ngIf="validate('password')" class="invalid-feedback d-block">
+            <p *ngIf="registerForm.get('password')?.errors?.['required']">Password Is Required</p>
+            <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+                Password must be at least <strong>8 characters</strong> and include 
+                <strong>uppercase, lowercase, and a number</strong>.         
+            </p>        
+        </div>
+        <!-- ================= Password confirmation ================= -->
+        <label class="text-white mb-1" for="rePassword">Password confirmation:</label>
+        <div class="input-group mb-3">
+            <input class="input-group form-control mb-3" formControlName="rePassword" [type]="isPasswordVisible ? 'text' : 'password'">
+            <!-- Toggle button Show / Hide Password -->
+            <button type="button" class="h-100 btn btn-outline-secondary" (click)="togglePasswordVisibility()" aria-label="Toggle password visibility" >
+                <i class="fa" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+        </div>       
+         <!-- Password confirmation validation messages -->
+        <div *ngIf="validate('rePassword') || (registerForm.errors?.['mismatch'] && (registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty)  )" class="invalid-feedback d-block">
+            <p *ngIf="registerForm.get('rePassword')?.hasError('required')">
+                Password confirmation is required
+            </p> 
+            <p *ngIf="registerForm.hasError('mismatch') && !registerForm.get('rePassword')?.hasError('required')">
+                Password confirmation does not match.
+            </p>       
+        </div>
+        <!-- ================= phone ================= -->
+        <label class="text-white mb-1" for="age">phone:</label>
+        <input formControlName="phone" class="form-control mb-3" type="tel">
+        <!-- phone validation messages -->
+        <div *ngIf="validate('phone')" class="invalid-feedback d-block">
+            <p *ngIf="registerForm.get('phone')?.errors?.['required']">phone is required</p>
+            <p *ngIf="registerForm.get('phone')?.errors?.['pattern']">
+                Please enter a valid Egyptian phone number (11 digits).
+            </p>
+        </div>
+        <!-- Submit button (disabled if form is invalid) -->
+        <button [disabled]="registerForm.invalid" class="btn btn-info mt-4">Register</button>
+    </form>
+</div>

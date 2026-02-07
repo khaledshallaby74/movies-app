@@ -1,0 +1,48 @@
+<nav class="px-5 bg-support1 d-flex align-items-center justify-content-between font-Regular-s16">
+    <div class="headerLogo text-white">
+        TRENDINGCIMA
+        <p class="font-Regular-s18 text-center p-0 m-0">مشاهدة أفضل الأفلام والمسلسلات</p>
+    </div>
+    <ul class="list-unstyled d-flex font-Regular-s18 m-0 gap-3">
+        <li *ngIf='isLogin'>
+            <a class="px-3 py-1 rounded-3 hover1" routerLink="home" [routerLinkActiveOptions]="{ exact: true }"  routerLinkActive="bg-support2">Home</a>
+        </li>
+        <li *ngIf="isLogin">
+            <a class="px-3 py-1 rounded-3 hover1" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="bg-support2" routerLink="movie">Movies</a>
+        </li>
+        <li *ngIf="isLogin">
+            <a class="px-3 py-1 rounded-3 hover1" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="bg-support2" routerLink="tv">TV</a>
+        </li>
+        <li *ngIf="isLogin">
+            <a class="px-3 py-1 rounded-3 hover1" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="bg-support2" routerLink="person">People</a>
+        </li>
+        <!-- <li *ngIf="isLogin">
+            <a class="px-3 py-1 rounded-3 hover1" routerLink="people">People</a>
+        </li> -->
+
+    </ul>
+    <ul class="list-unstyled d-flex align-items-center m-0 gap-3 font-Regular-s18">
+         <li>
+            <a><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+            <a><i class="fab fa-facebook"></i></a>
+        </li>
+        <li>
+            <a><i class="fab fa-youtube"></i></a>
+        </li>
+        <li>
+            <a><i class="fab fa-whatsapp"></i></a>
+        </li>
+        <li *ngIf="!isLogin" class=" ms-4">
+            <a class="px-3 py-1 rounded-3 hover1" routerLink="login">Log In</a>
+        </li>
+        <li *ngIf="!isLogin">
+            <a class="px-3 py-1 rounded-3 hover1" routerLink="register">register</a>
+        </li>
+        <li *ngIf="isLogin" (click)="logOut()">
+            <a class="px-3 py-1 rounded-3 hover1" routerLink="">Log out</a>
+        </li>
+       
+    </ul>
+</nav>

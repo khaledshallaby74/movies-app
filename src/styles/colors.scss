@@ -1,0 +1,46 @@
+// Vars Color
+$main: #131722;
+$secondry:#212529;
+$support2:#aab6ff;
+$support1:#3a459e;
+$white: #dddfe4;
+$light-black: #a8a8a83d;
+
+
+
+// START === Background Color
+.bg-main {
+  background-color: $main !important;
+}
+.bg-secondry {
+  background-color: $secondry !important;
+}
+.bg-support2 {
+  background-color: $support2 !important;
+}
+.hover1:hover {
+  background-color: $support2 !important;
+}
+.bg-support1 {
+  background-color: $support1 !important;
+}
+// END === Background Color
+
+// START === Text Color
+.text-main {
+  color: $main !important;
+}
+.text-white {
+  color: $white;
+}
+
+.text-support1 {
+  color: $support1;
+}
+.text-support2 {
+  color: $support2;
+}
+
+.text-white-opacity-70 {
+  color: rgba($color: $white, $alpha: 0.7);
+}

@@ -1,0 +1,72 @@
+<div class="min-vh-100 bg-main text-white pb-5">
+    <div class="position-relative vh-50 d-flex align-items-end shadow-lg" 
+         [style.background]="'linear-gradient(to top, #212529, transparent), url(' + imgPrifix + episode.still_path + ')'"
+         style="background-size: cover; background-position: center; min-height: 400px;">
+        
+        <div class="container pb-4">
+            <button class="btn btn-outline-light btn-sm rounded-pill px-3 mb-4 opacity-75" 
+                    [routerLink]="['/tv', tvId, 'season', seasonNum]">
+                <i class="fas fa-chevron-left me-2"></i> Back to Season
+            </button>
+            
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-support1 text-white">S{{episode.season_number}} | E{{episode.episode_number}}</span>
+                <span class="badge bg-warning text-dark"><i class="fas fa-star me-1"></i>{{episode.vote_average | number:'1.1-1'}}</span>
+            </div>
+            <h1 class="display-3 fw-bold mb-0 text-uppercase">{{ episode.name }}</h1>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <h3 class="text-support1 mb-3 font-Bold-s24">Overview</h3>
+                <p class="lead text-secondary lh-lg font-Regular-s18">{{ episode.overview }}</p>
+
+                <div class="mt-5">
+                    <h3 class="text-support1 mb-4 font-Bold-s24">Guest Stars</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4 col-sm-6" *ngFor="let star of episode.guest_stars">
+                            <div class="d-flex align-items-center bg-secondary bg-opacity-10 p-2 rounded-3 border border-secondary border-opacity-25 shadow-sm">
+                                <img [src]="imgPrifix + star.profile_path"  class="rounded-circle Border-support1-s4 object-fit-cover me-3 iC-S50">
+                                <div>
+                                    <h6 class="mb-0 text-white font-SemiBold-s14 text-truncate" style="max-width: 150px;">{{star.name}}</h6>
+                                    <small class="text-support1 small">{{star.character}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bg-secondary bg-opacity-10 p-4 rounded-4 border border-secondary border-opacity-25 sticky-top" style="top: 50px;">
+                    <h4 class="text-white mb-4 border-bottom border-secondary border-opacity-25 pb-2">Episode Info</h4>
+                    
+                    <div class="mb-3">
+                        <small class="text-muted d-block uppercase font-SemiBold-s12">AIR DATE</small>
+                        <span class="text-white fw-bold">{{ episode.air_date | date:'longDate' }}</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <small class="text-muted d-block uppercase font-SemiBold-s12">RUNTIME</small>
+                        <span class="text-white fw-bold">{{ episode.runtime }} Minutes</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <small class="text-muted d-block uppercase font-SemiBold-s12">EPISODE TYPE</small>
+                        <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25">
+                            {{ episode.episode_type | uppercase }}
+                        </span>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+                        <button class="btn btn-support1 w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
+                           <i class="fas fa-play me-2"></i> Watch Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

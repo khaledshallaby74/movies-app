@@ -1,0 +1,26 @@
+<div class="container pb-5">
+    <div class="mb-4 text-white font-Bold-s18 d-none">Top Trending Media Right Now</div>
+    <swiper-container 
+        slides-per-view="1" 
+        space-between="15"
+        loop="true"
+        navigation="false"
+        [breakpoints]="breakpoints" 
+        effect="coverflow" 
+        grab-cursor="true"
+         centered-slides="false" 
+        slides-per-view="auto"
+         coverflow-effect-rotate="50"
+        autoplay-delay="2500" 
+        autoplay-disable-on-interaction="false"
+        autoplay-pause-on-mouse-enter="true"
+        speed="1500"
+    >
+    <swiper-slide *ngFor="let slide of owlData; trackBy: trackByFn">
+                <img [src]="imgPrifix + (slide.poster_path || slide.profile_path)" 
+                 class="w-100 rounded-3 shadow" 
+                 [title]="slide.title || slide.name">
+        </swiper-slide>
+    </swiper-container>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="w-75 mx-auto py-5">
+    <!-- Page title -->
+    <h2 class="text-white mb-4">Login Now</h2>
+    <div *ngIf="error" class="alert alert-danger m-2">{{error}}</div>
+    <!-- Reactive form binding + submit handler -->
+    <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
+        <!-- ================= Email ================= -->
+        <label class="text-white mb-1" for="email">email:</label>
+        <input class="form-control mb-3" formControlName="email" type="email">
+        <!-- Email validation messages -->
+        <div *ngIf="validate('email')" class="invalid-feedback d-block">
+            <p *ngIf="loginForm.get('email')?.errors?.['required']">email is required</p>
+            <p *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email.</p>
+        </div>
+        <!-- ================= Password ================= -->
+        <label class="text-white mb-1" for="password">password:</label>
+        <div class="input-group mb-3">
+            <input class="input-group form-control mb-3" formControlName="password" [type]="isPasswordVisible ? 'text' : 'password'">
+            <!-- Toggle button Show / Hide Password -->
+            <button type="button" class="h-100 btn btn-outline-secondary" (click)="togglePasswordVisibility()" aria-label="Toggle password visibility" >
+                <i class="fa" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+        </div>
+        <!-- Password validation messages -->
+        <div *ngIf="validate('password')" class="invalid-feedback d-block">
+            <p *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</p>
+            <p *ngIf="loginForm.get('password')?.errors?.['pattern']">
+                Password must be at least <strong>8 characters</strong> and include 
+                <strong>uppercase, lowercase, and a number</strong>.
+            </p>
+        </div>
+        <!-- Submit button (disabled if form is invalid) -->
+        <button [disabled]="loginForm.invalid" class="btn btn-info mt-4">Log in</button>
+    </form>
+</div>
