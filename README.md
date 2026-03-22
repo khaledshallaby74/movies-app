@@ -1,23 +1,35 @@
 # Movies App
 
-A web application built with **Angular** that allows users to explore movies, TV series, and people details using a clean and responsive UI.
+A web application built with **Angular**  using TMDB API, that allows users to explore movies, TV series, using a clean and responsive UI. 
 
 > 🚧 **Note:** This project is still under development. New features and improvements are continuously being added.
 
 ---
 
 ## Features (Current)
+
 - Browse movies and TV series
 - View movie and series details
-- Explore people (actors / actresses)
+
 - User authentication system:
   - Register
   - Login
+
 - Route protection using Auth Guards
 - Lazy loading for feature modules
+
 - Modular architecture using Angular modules
 - Clean and reusable components
 - Responsive design
+
+- Advanced search functionality:
+  - Search movies and TV series by name
+  - Real-time search using RxJS (debounceTime, switchMap)
+
+- Filtering system:
+  - Filter by genre
+  - Filter by rating
+  - Filter by release year
 ---
 
 ## Tech Stack
@@ -32,8 +44,8 @@ A web application built with **Angular** that allows users to explore movies, TV
 ---
 
 ## Project Structure
-- `core` → services, guards, models
-- `features` → main application modules (movies, series, auth, home, people.)
+- `core` → services, guards, models, interceptors
+- `features` → main application modules (movies, series, auth, home.)
 - `shared` → reusable components and modules
 
 ---
