@@ -1,4 +1,18 @@
-<app-header [posts]="allMovies"></app-header>
+<app-header [posts]="(allMovies$ | async) ?? []"></app-header>
+<div class="row pb-5 justify-content-center">
+    <div class="col-md-3 col-12 sideMenu">
+        <div class="sideMenuWrapper">
+            <app-side-menu></app-side-menu>
+        </div>
+    </div>
+    <div class="col-lg-9 col-12">
+        <app-posts [posts$]="allMovies$ "
+        [currentPage]="pageNumber"
+        [totalItems]="totalPages"
+        >
+        </app-posts>
+    </div>
 
-<app-posts [posts]="allMovies" [title]="title"  [currentPage]="pageNumber" [totalItems]="totalPages" ></app-posts>
+
+</div>
 <app-pagination (pageChanged)="loadData($event)"></app-pagination>

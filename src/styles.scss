@@ -2,9 +2,9 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
+@import "ngx-toastr/toastr";
 a{
     text-decoration: none !important;
-    color: #fff !important;
 }
 // scrollbar [Block] ==> Start
 ::-webkit-scrollbar {
@@ -26,12 +26,13 @@ a{
 // scrollbar [Block] ==> End
 body{
     overflow-x: hidden;
-    background-color: #131722 !important;
 }
+
 
 .no-scroll {
     overflow: hidden;
   }
+
 
 
 

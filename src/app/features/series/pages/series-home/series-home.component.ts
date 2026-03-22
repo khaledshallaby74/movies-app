@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { CardArray } from 'src/app/core/model/card';
 import { PostsService } from 'src/app/core/services/posts.service';
 
@@ -9,19 +10,34 @@ import { PostsService } from 'src/app/core/services/posts.service';
   styleUrls: ['./series-home.component.scss']
 })
 export class SeriesHomeComponent {
-  constructor(private _PostsService:PostsService){}
-  allSeries:CardArray[] = [];
-  title:string = 'TV';
+  //Observable holding the combined TV data coming from PostsService.content$.
+  allSeries$!:Observable<CardArray[]>;
+  //Current page number for pagination.
   pageNumber:number=1;
+  //Total pages returned by TMDB API Used for rendering pagination controls.
   totalPages:number=0
-  loadData(page:number){
-    this._PostsService.getAll("tv", page).subscribe( (res) =>{
-      this.allSeries = res.results     
-      this.pageNumber = res.page;
-      this.totalPages = res.total_results;      
-    })
-  }
+  constructor(private _PostsService:PostsService){}
+
   ngOnInit(){
-    this.loadData(1)
+    this.getData()
+  }
+  /**
+ * Fetches TV shows from the global content$ stream,
+ * maps data for consistent structure, updates pagination,
+ * and filters out only items with media_type 'tv'.
+ */
+  getData() {
+    this.allSeries$ = this._PostsService.content$.pipe(
+      map(res => {
+        const mapped = this._PostsService.mapMediaData(res);
+        this.totalPages = mapped.totalPages;
+        const onlySeries = mapped.data.filter(item => item.media_type === 'tv');
+        return onlySeries;
+      })
+    );
+  }
+  // Update the current page and trigger new data fetch via PostsService BehaviorSubject.
+  loadData(page: number) {
+    this._PostsService.setPage(page);
   }
 }

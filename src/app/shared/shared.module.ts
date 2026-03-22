@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedRoutingModule } from './shared-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OwlcarouselComponent } from './components/owlcarousel/owlcarousel.component';
@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SeasonDetailsComponent } from './components/season-details/season-details.component';
 import { EpisodeDetailsComponent } from './components/episode-details/episode-details.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { ɵInternalFormsSharedModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,15 +24,19 @@ import { EpisodeDetailsComponent } from './components/episode-details/episode-de
     PaginationComponent,
     SeasonDetailsComponent,
     EpisodeDetailsComponent,
+    SideMenuComponent,
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     NgxPaginationModule,
-    
-  ],
+    ɵInternalFormsSharedModule,
+      ReactiveFormsModule
+
+],
   exports:[
     NavbarComponent,
+    SideMenuComponent,
     OwlcarouselComponent,
     PostsComponent,
     MovieDetailsComponent,
@@ -38,7 +44,7 @@ import { EpisodeDetailsComponent } from './components/episode-details/episode-de
     HeaderComponent,
     PaginationComponent,
     SeasonDetailsComponent,
-        EpisodeDetailsComponent,
+    EpisodeDetailsComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

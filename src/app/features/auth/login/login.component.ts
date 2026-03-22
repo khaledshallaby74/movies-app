@@ -32,18 +32,18 @@ submitLoginForm(loginForm:FormGroup){
   this._AuthService.login(loginForm.value).subscribe({
     next: (res)=>{      
       if(res.message == "success"){
-        localStorage.setItem('userToken', res.token)
-        this._AuthService.saveUserData()
         this._Router.navigate(['home'])
       }
     }, 
-    error: (err)=>{
-      this.error = err.error.message;
-    } 
   })
 }
-
-
+// SOCIAL LOGIN
+loginWithGoogle():void{
+  this._AuthService.loginWithGoogle()
+}
+loginWithFacebook():void{
+  this._AuthService.loginWithFacebook()
+}
 
 }
 

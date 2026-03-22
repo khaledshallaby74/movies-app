@@ -1,0 +1,179 @@
+//Navbar Icons
+.iC-Startat-Logo {
+  background-image: url(../assets/icons/logos/STARTAT-LOGO.svg);
+}
+.iC-Nav-Dropdown {
+  background-image: url(../assets/icons/Responsive/navbar-responsive-navbar.svg);
+}
+.iC-Nav-Dropdown-Icon {
+  background-image: url(../assets/icons/sideBar/Dropdown-icon.svg);
+}
+
+
+// side menu
+.iC-Nav-Dropdown-Icon {
+  background-image: url(../assets/icons/sideBar/Dropdown-icon.svg);
+}
+
+.iC-Nav-Search-Icon {
+  background-image: url(../assets/icons/sideBar/Search.svg);
+}
+.iC-Arrow-Down-Icon {
+  background-image: url(../assets/icons/sideBar/Arrow-Down.svg);
+}
+
+// .iC-Facebook-Icon {
+//   background-image: url(../assets/icons/login/Facebook-Blue.svg);
+// }
+
+.iC-Google-Icon {
+  background-image: url(../assets/icons/login/google.png);
+}
+
+// social
+.iC-Twitter-Icon {
+  background-image: url(../assets/icons/social/Twitter.svg);
+}
+
+.iC-LinkedIn-Icon {
+  background-image: url(../assets/icons/social/LinkedIn.svg);
+}
+
+.iC-Facebook-Icon {
+  background-image: url(../assets/icons/social/Facebook.svg);
+}
+
+.iC-Snapchat-Icon {
+  background-image: url(../assets/icons/social/Snapchat.svg);
+}
+// Icons Sizes
+
+.iC-S8 {
+  width: 8px;
+  height: 8px;
+}
+
+.iC-S10 {
+  width: 10px;
+  height: 10px;
+}
+
+.iC-S12 {
+  width: 12px;
+  height: 12px;
+
+  @media (max-width: 992px) {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.iC-S16 {
+  width: 16px;
+  height: 16px;
+
+  @media (max-width: 992px) {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.iC-S20 {
+  width: 20px !important;
+  height: 20px !important;
+
+  @media (max-width: 992px) {
+    width: 16px !important;
+    height: 12px !important;
+  }
+}
+.iC-S22 {
+  width: 22px;
+  height: 22px;
+
+  @media (max-width: 992px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.iC-S24 {
+  width: 24px;
+  height: 24px;
+
+  @media (max-width: 992px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.iC-S32 {
+  width: 32px;
+  height: 32px;
+
+  @media (max-width: 992px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.ic-w32-h20 {
+  width: 32px;
+  height: 22px;
+}
+
+.iC-S40 {
+  width: 40px;
+  height: 40px;
+
+  @media (max-width: 992px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.iC-S45 {
+  width: 45px;
+  height: 45px;
+
+  @media (max-width: 992px) {
+    width: 37px;
+    height: 37px;
+  }
+}
+
+.iC-S74 {
+  width: 74px;
+  height: 74px;
+
+  @media (max-width: 992px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.iC-S91 {
+  width: 91px;
+  height: 91px;
+
+  @media (max-width: 992px) {
+    width: 70px;
+    height: 68px;
+  }
+}
+
+.iC-Google-Play-Icon,
+.iC-App-Store-Icon {
+  @media (max-width: 992px) {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.info-icon {
+  @media (max-width: 992px) {
+    width: 14px;
+    height: 14.5px;
+  }
+}

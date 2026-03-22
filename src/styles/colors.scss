@@ -1,46 +1,185 @@
-// Vars Color
-$main: #131722;
-$secondry:#212529;
-$support2:#aab6ff;
-$support1:#3a459e;
-$white: #dddfe4;
-$light-black: #a8a8a83d;
+/* ================= THEME VARIABLES ================= */
+:root {
+  --main: #6c2387;
+  --secondary: #d3b057;
+  --support1: #3c3c3c;
+  --support2: #ddd;
+  --white: #ffffff;
+  --dark-white: #f1f1f1;
+  --light-black: rgba(60, 60, 60, 0.8);
+  --gray: rgba(75, 13, 98, 0.04);
+  --light-gray: #d9d9d9;
+  --light-yellow: #f1cd51;
+}
+/* ================= DARK MODE ================= */
+.dark-mode {
 
+  --main: #bb86fc;
+  --secondary: #f1cd51;
 
+  --support1: #e4e4e4;
+  --support2: #1e1e1e;
 
+  --white: #121212;
+  --dark-white: #1a1a1a;
+
+  --light-black: rgba(255,255,255,0.8);
+
+  --gray: rgba(255,255,255,0.05);
+  --light-gray: #2c2c2c;
+
+  --light-yellow: #ffd54f;
+
+}
 // START === Background Color
-.bg-main {
-  background-color: $main !important;
+.bg-Inherit {
+  background-color: inherit !important;;
 }
-.bg-secondry {
-  background-color: $secondry !important;
-}
-.bg-support2 {
-  background-color: $support2 !important;
-}
-.hover1:hover {
-  background-color: $support2 !important;
-}
-.bg-support1 {
-  background-color: $support1 !important;
-}
-// END === Background Color
 
-// START === Text Color
-.text-main {
-  color: $main !important;
+.bg-transparent {
+  background-color: transparent !important;;
 }
-.text-white {
-  color: $white;
+
+.bg-main {
+  background-color: var(--main) !important;
+}
+
+.bg-support1 {
+  background-color: var(--support1) !important;;
+}
+
+.bg-secondary-color {
+  background-color: var(--secondary) !important;
+}
+
+.bg-support2 {
+  background-color: var(--dark-white) !important;
+}
+
+.bg-white {
+  background-color: var(--white) !important;;
+}
+
+.bg-dark-white {
+  background-color: var(--dark-white) !important;;
+}
+
+.bg-gray {
+  background-color: var(--gray) !important;;
+}
+
+.bg-light-gray {
+  background-color: var(--light-gray) !important;;
+}
+.bg-hover-support2 {
+  transition: all 0.3s ease !important;
+  &:hover {
+    background-color: var(--support2) !important;
+    color: var(--white) !important;
+  }
+
+}
+
+
+// END === Background Color
+// START === Text Color
+.text-.bg-hover-main {
+  transition: all 0.3s ease !important;
+  &:hover {
+    background-color: var(--main) !important;
+    color: var(--white) !important;
+  }
+
+}main {
+  color: var(--main) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
 }
 
 .text-support1 {
-  color: $support1;
+  color: var(--support1) !important;;
 }
+
 .text-support2 {
-  color: $support2;
+  color: var(--support2) !important;;
+}
+
+.text-white {
+  color: var(--white) !important;
+}
+
+.text-dark-white {
+  color: var(--dark-white) !important;;
+}
+
+.text-light-black {
+  color: var(--light-black) !important;;
+}
+
+.text-light-yellow {
+  color: var(--light-yellow) !important;
+}
+// END === Text Color
+// START === gradient color
+.bg-main-gradient {
+  background: rgba(var(--main-rgb), 0.75) !important;
+}
+// END === gradient color
+// START === Text Color opacity
+.text-support1-opacity-80 {
+  color: rgba(60, 60, 60, 0.8) !important;;
+}
+
+.text-support1-opacity-70 {
+  color: rgba(60, 60, 60, 0.7) !important;;
+}
+
+.text-support1-opacity-60 {
+  color: rgba(60, 60, 60, 0.6) !important;
+}
+.text-white-opacity-50 {
+  color: rgba(255, 255, 255, 0.5) !important;;
+}
+
+.text-white-opacity-60 {
+  color: rgba(255, 255, 255, 0.6) !important;;
 }
 
 .text-white-opacity-70 {
-  color: rgba($color: $white, $alpha: 0.7);
+  color: rgba(255, 255, 255, 0.7) !important;;
+}
+
+.text-white-opacity-80 {
+  color: rgba(255, 255, 255, 0.8) !important;;
+}
+
+.text-dark-white-opacity-80 {
+  color: rgba(241, 241, 241, 0.8) !important;;
+}
+// END === Text Color opacity
+// START === Background Color opacity
+.bg-main-opacity-55 {
+  background-color: rgba(75, 13, 98, 0.9) !important;;
+}
+
+.bg-support1-opacity-10 {
+  background-color: rgba(60, 60, 60, 0.1) !important;;
+}
+
+.bg-support1-opacity-40 {
+  background-color: rgba(60, 60, 60, 0.4) !important;;
+}
+
+.bg-support1-opacity-05 {
+  background-color: rgba(60, 60, 60, 0.05) !important;;
+}
+
+.bg-dark-white-opacity-29 {
+  background-color: rgba(241, 241, 241, 0.29) !important;;
+}
+
+.bg-white-opacity-40 {
+  background-color: rgba(255, 255, 255, 0.4) !important;;
 }

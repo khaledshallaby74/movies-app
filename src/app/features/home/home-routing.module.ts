@@ -5,7 +5,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MovieDetailsComponent } from 'src/app/shared/components/movie-details/movie-details.component';
 
 const routes: Routes = [
-  {path: "", canActivate:[authGuard], component:HomePageComponent},
+  {path: "", canActivate:[authGuard], component:HomePageComponent, data: { mediaType: null }},
   {path:":id/:title", canActivate:[authGuard], component:MovieDetailsComponent}
 ];
 

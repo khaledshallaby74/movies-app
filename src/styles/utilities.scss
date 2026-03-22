@@ -1,42 +1,56 @@
 // START === General
-.cursor-click {
-  cursor: pointer;
-}
 swiper-container {
-    overflow: visible !important; /* بيخلي الصور اللي برا الـ Container تبان */
+    overflow: visible !important;  
 }
-
+.cursor-click {
+  cursor: pointer !important;;
+}
 .text-underline {
-  text-decoration: underline;
+  text-decoration: underline !important;;
 }
 .text-ellipsis{
-  text-overflow: ellipsis;
-  overflow: hidden;
+  text-overflow: ellipsis !important;;
+  overflow: hidden !important;;
 }
 .overflow-ellipsis{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  direction: ltr;
+  white-space: nowrap !important;;
+  text-overflow: ellipsis !important;;
+  direction: ltr !important;;
 }
-.form-control:focus {
-    color: #3a459e !important;
-    background-color: #fff;
-    border-color: none !important;
+.form-control{
+&:focus {
+    box-shadow: none !important;
     outline: unset !important;
 }
-.headerLogo{
-    font-size: 38px;
-    font-family: Bevan;
-    line-height: 32px;
-    display: inline-block;
-    padding-top: 8px;
+input::placeholder {
+  font-size: 16px !important;
+  font-family: Cairo-Regular !important;
 }
+}
+.mw-fit-content{
+  min-width: fit-content;
+}
+
+.line {
+  flex: 1 ; 
+  border: none ;
+  height: 1px ;
+}
+.sideMenuWrapper {
+  position: sticky;     
+  top: 90px;                
+  max-height: calc(100vh - 90px); 
+  overflow: auto;     
+  -webkit-overflow-scrolling: touch; 
+}
+
+
 .ngx-pagination .current{
-    background: #3a459e !important; 
+    background: #6c2387 !important; 
 
 }
 .ngx-pagination a:hover{
-      background: #3a459e !important; 
+      background: #6c2387 !important; 
 
 }
 
@@ -46,7 +60,7 @@ swiper-container {
 
 // START === Border Radius
 .border-f-radius-s5 {
-  border-radius: 5px;
+  border-radius: 5px !important;;
 }
 
 .border-b-radius-s5 {
@@ -62,11 +76,11 @@ swiper-container {
 }
 
 .border-f-radius-s10 {
-  border-radius: 10px;
+  border-radius: 10px !important;;
 }
 
 .border-r-radius-s10 {
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0 !important;;
 }
 
 .border-t-radius-s10 {
@@ -74,84 +88,171 @@ swiper-container {
 }
 
 .border-f-radius-s8 {
-  border-radius: 8px;
+  border-radius: 8px !important;;
 }
 
 .border-f-radius-s15 {
-  border-radius: 15px;
+  border-radius: 15px !important;;
 }
 .border-f-radius-s16 {
-  border-radius: 16px;
+  border-radius: 16px !important;;
 }
 .border-f-radius-s20 {
-  border-radius: 20px;
+  border-radius: 20px !important;
 }
 
 .border-f-radius-s28 {
-  border-radius: 28px;
+  border-radius: 28px !important;
 }
 
 .border-r-radius-s50 {
-  border-radius: 50px 0 0 50px;
+  border-radius: 50px 0 0 50px !important;;
+}
+.border-l-radius-s50 {
+  border-radius: 0 50px 50px 0 !important;;
 }
 
 .border-r-radius-s8 {
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px 0 0 8px !important;;
 }
 
 .border-f-radius-s50 {
-  border-radius: 50px;
+  border-radius: 50px !important;;
 }
 
 // END === Border Radius
 
 // START === Border 
 .Border-lightBlack-s1 {
-  border: 1px solid #a8a8a83d;
+  border: 1px solid #a8a8a83d !important;;
 }
 .Border-t-lightBlack-s1 {
-  border-top: 1px solid #a8a8a83d;
+  border-top: 1px solid #a8a8a83d !important;;
 }
 .Border-b-lightBlack-s1 {
-  border-bottom: 1px solid #a8a8a83d;
+  border-bottom: 1px solid #a8a8a83d !important;;
 }
-.Border-b-support1-s1 {
-  border-bottom: 1px solid #3a459e !important;
+
+.Border-Support1-s1 {
+  border: 1px solid rgba($color: #3c3c3c, $alpha: 0.3) !important;
 }
-.Border-b-support1-s3 {
-  border-bottom: 3px solid #3a459e !important;
+
+.Border-Main-s1 {
+  border: 1px solid #4b0d62 !important;
 }
-.Border-support1-s4 {
-  border: 4px solid #3a459e !important;
+
+.Border-Main-s2 {
+  border: 2px solid #4b0d62 !important;
 }
-.Border-support1-s2 {
-  border: 2px solid #3a459e !important;
+
+.Border-Main-s3 {
+  border: 3px solid #4b0d62 !important;;
+}
+
+.Border-b-Main-s1 {
+  border-bottom: 1px solid #4b0d62 !important;;
+}
+
+.Border-b-Main-s2 {
+  border-bottom: 2px solid #4b0d62 !important;;
+}
+
+.Border-Main-s05 {
+  border: .5px solid #3C3C3C1A !important;;
+}
+.Border-b-gray-s1 {
+  border-bottom: 1px solid #3C3C3C1A !important;
+}
+.Border-t-Main-s1 {
+  border-top: 1px dashed #3c3c3c33 !important;;
+}
+
+.Border-Support1-s1 {
+  border: 1px solid rgba($color: #3c3c3c, $alpha: 0.4) !important;;
+}
+
+.Border-T-Support1-s1 {
+  border-top: 1px solid rgba($color: #3c3c3c, $alpha: 0.4) !important;;
+}
+
+.Border-white-s3 {
+  border: 3px solid #fff !important;;
+}
+
+.Border-s0 {
+  border: 0 !important;;
+}
+
+.Border-t-white-s5 {
+  border-top: 5px solid #fff !important;;
+}
+
+.Border-gray-s1 {
+  border: 1px solid rgba(60, 60, 60, 0.2) !important;;
+}
+
+.Border-linear-s1 {
+  border: 1px solid transparent !important;;
+  border-image-source: linear-gradient(to top, #4b0d62, #9a86c981, #4b0d62) !important;;
+  border-image-slice: 1 !important;;
 }
 // END === Border 
 
-// Text-Line-height
+// START === Text-Line-height
 .line-height-15 {
-  line-height: 1.5rem;
+  line-height: 1.5rem !important;;
 }
 
 .line-height-2 {
-  line-height: 2rem;
+  line-height: 2rem !important;;
 }
 
 .line-weight-1 {
-  font-weight: 600;
+  font-weight: 600 !important;;
 }
 
 .line-height-2 {
-  line-height: 2rem;
+  line-height: 2rem !important;;
 }
 
 .line-weight-1 {
-  font-weight: 600;
+  font-weight: 600 !important;;
 }
 .min-w-fit{
-  min-width: fit-content;
+  min-width: fit-content !important;;
 }
-.w-fit-content{
-  width: fit-content;
+// END === Text-Line-height
+// START === Box Shadow
+.shadow-black-01 {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) !important;;
+}
+.shadow-black-05 {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) !important;;
+}
+.shadow-black-25 {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;;
+}
+
+// END === Box Shadow
+//
+.transition-smooth {
+  transition: all 0.3s ease !important;
+}
+
+// 
+.collapse {
+  &.collapsing {
+    transition: height 0.3s ease !important;
+  }
+}
+.form-check-input[type=checkbox]{
+  border: 1px solid #d3b057 !important;
+ &:checked{
+  background-color: #d3b057 !important;
+  border-color: #d3b057 !important;
+}&:focus{
+box-shadow: 0 0 0 .25rem rgba(211, 176, 87, 0.25) !important;;}
+}
+ul {
+  list-style: none !important;;
 }

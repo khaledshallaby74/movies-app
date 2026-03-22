@@ -1,22 +1,30 @@
 
 
-<div class="row gap-3 justify-content-center">
-    <div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
-        <h2 class="text-white align-self-start Border-t-lightBlack-s1 pt-3">Trending Movies And Series<br/> To Watch Now</h2>
-        <p class="text-white-opacity-70 align-self-start Border-b-lightBlack-s1 pb-3">Most Watched {{title}} by Days</p>
-    </div>
-
-    <div class="col-md-2 rounded-3 position-relative px-0 pb-3 bg-secondry mb-5" *ngFor="let post of posts | paginate: { 
+<div class="row px-lg-0 px-3 gap-3 justify-content-center">
+    <div class="card-item cursor-click col-lg-3 col-6 position-relative px-md-3 px-2 mb-4" *ngFor="let post of (posts$ | async) ?? [] | paginate: { 
         id: 'main_pagination', 
         itemsPerPage: 20, 
         currentPage: currentPage, 
         totalItems: totalItems > 10000 ? 10000 : totalItems}">
-        <div class="position-relative">
+        <div class="card border-f-radius-s10 py-2 px-3 bg-white d-flex flex-column gap-md-4 gap-3 position-relative pb-2 shadow-black-25">
             <a [routerLink]="['/', post.media_type, post.id, slugify(post.name || post.original_title || '')]">
                 <img [src]="imgPrifix + (post.poster_path || post.profile_path)" class="w-100 mb-2" alt="">
-                <h3 class="ms-2 font-Regular-s16-s10 text-white m-0">{{post.name || post.original_title}}</h3>
+                <h3 class="font-Bold-s18 text-support1 m-0">{{post.name || post.original_title}}</h3>
                 <div class="vote bg-support1 p-1 font-Bold-s16-s14 text-white position-absolute end-0 top-0">
                     {{post.vote_average || post.popularity | number:'1.1-1' }}
+                </div>
+                <div class="d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                        <span>{{post.vote_average || post.popularity | number:'1.1-1' }}</span>
+                    </div>
+                    <div  class="px-3 py-2 rounded-3  bg-support2">
+                        <i class="fa-heart iC-S20 font-Bold-s18 text-support1"
+                        [class.fa-solid]="post.isFav" 
+                        [class.fa-regular]="!post.isFav "
+                        (click)="$event.preventDefault(); $event.stopPropagation(); post.isFav = !post.isFav"
+                        >
+                        </i>
+                    </div>
                 </div>
             </a>
         </div>

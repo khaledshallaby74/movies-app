@@ -10,17 +10,14 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class NavbarComponent {
   constructor(private _AuthService:AuthService, private _Router:Router){}
   isLogin:boolean = false;
-  ngOnInit(){
-    this._AuthService.userData.subscribe( ()=>{
-        if(this._AuthService.userData.getValue() != null){
-          this.isLogin = true
-        }else{
-          this.isLogin = false
-        }
-    } )    
-  }
+  socialMediaIconsArray = [
+    { icon: 'iC-Twitter-Icon', link: 'https://www.snapchat.com/' }, { icon: 'iC-LinkedIn-Icon' }, { icon: 'iC-Facebook-Icon' },
+    { icon: 'iC-Snapchat-Icon' }
+  ]
+  ngOnInit(){ }
   logOut(){
     this._AuthService.logOut()
   }
+  
 
 }

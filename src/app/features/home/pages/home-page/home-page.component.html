@@ -1,8 +1,18 @@
-<app-header [posts]="allTrending"></app-header>
-<app-posts [posts]="allTrending"
-    [title]="title" 
-    [currentPage]="pageNumber"
-    [totalItems]="totalPages"
-    >
-</app-posts>
+<app-header [posts]="(allData$ | async) ?? []"></app-header>
+<div class="row pb-5 justify-content-center">
+    <div class="col-md-3 col-12 sideMenu">
+        <div class="sideMenuWrapper">
+            <app-side-menu></app-side-menu>
+        </div>
+    </div>
+    <div class="col-lg-9 col-12">
+        <app-posts [posts$]="allData$ "
+        [currentPage]="pageNumber"
+        [totalItems]="totalPages"
+        >
+        </app-posts>
+    </div>
+
+
+</div>
 <app-pagination (pageChanged)="loadData($event)"></app-pagination>

@@ -1,0 +1,159 @@
+<div class="bg-main d-flex flex-column ms-4 py-md-4 py-0 border-f-radius-s10 gap-3">
+   <div class="px-3 d-flex flex-column ">
+       <div class="d-flex justify-content-between mb-3" >
+          <!-- search text -->
+          <p class="m-0 font-SemiBold-s16 text-white d-flex align-items-center gap-1" data-bs-toggle="collapse" href="#SearchDisplay" role="button"
+            aria-expanded="false" aria-controls="SearchDisplay">
+            Search
+             <i class="iC-Nav-Dropdown-Icon text-white iC-S10 img-Background-Contain d-flex"></i>
+          </p>
+       </div>
+       <!-- search input -->
+       <div class="collapse show transition-smooth" id="SearchDisplay">
+          <div class="Border-Support1-s1 bg-white border-f-radius-s50 d-flex align-items-center gap-2 py-2 px-3">
+             <!-- Search Icon -->
+             <i class=" iC-Nav-Search-Icon img-Background-Contain iC-S16 d-flex"></i>
+             <!-- Input Search -->
+             <input type="text" [formControl]="searchControl" placeholder="Search here" class="font-Regular-s16 border-0 p-0 form-control"
+                aria-label="Text input with 2 dropdown buttons">
+          </div>
+       </div>
+   </div>
+   <ul class="d-flex px-3 m-0 mt-3  flex-column justify-content-center align-items-center gap-3">
+      <li class="bg-secondary-color w-100 text-center rounded-3 py-2 ">
+         <a class=" font-Regular-s20 text-white hover1 w-100 cursor-click" (click)="setCategory('popular')" aria-current="page"> Popular </a>
+      </li>
+      <li class="bg-secondary-color w-100 text-center rounded-3 py-2 px-3">
+         <a class=" font-Regular-s20   text-white hover1 cursor-click" (click)="setCategory('top_rated')" aria-current="page"> Top Rated </a>
+      </li>
+      <li class="bg-secondary-color text-center w-100 rounded-3 py-2 px-3">
+         <a class=" font-Regular-s20 text-white hover1 cursor-click" (click)="setCategory('now_playing')" aria-current="page"> Now Playing  </a>
+      </li>
+      <li class="bg-secondary-color w-100  text-center rounded-3 py-2 px-3 ">
+         <a class=" font-Regular-s20  text-white hover1 cursor-click" (click)="setCategory('upcoming')" aria-current="page"> Coming Soon </a>
+      </li>
+   </ul>
+   <!-- filter by geners -->
+   <div class="d-flex flex-column px-3">
+      <div class="d-flex justify-content-between mt-2 mb-3" >
+         <!-- Sector text -->
+         <p class="m-0 font-SemiBold-s16 text-white d-flex align-items-center gap-1" data-bs-toggle="collapse" href="#GenersrDisplay" role="button"
+         aria-expanded="false" aria-controls="GenersrDisplay">
+         Choose Type
+            <i class="iC-Nav-Dropdown-Icon iC-S10 img-Background-Contain d-flex"></i>
+         </p>
+      </div>
+      <!-- gener checkboxes -->
+      <div  class="collapse transition-smooth show text-center" id="GenersrDisplay">
+         <ng-container *ngIf="allGenre$ | async as genres">
+         <div class="d-flex row">
+            <div class="d-flex gap-2 col-6 mw-fit-content" *ngFor="let genre of genres | slice:0:visibleCounts['genres']">
+               <input class="form-check-input cursor-click " 
+               type="checkbox" [id]="'genre' + genre.id"
+               value="option1"
+               (change)="updateCheckboxFilter('genre',genre.id,$event)"
+               [checked]="selectedFilters.genre.includes(genre.id)">
+               <label class="text-white font-Regular-s16" [for]="'genre' + genre.id">{{genre.name}}</label>
+            </div>
+         </div>
+         <button class="bg-secondary-color btn btn-outline-light mt-2 w-100 text-white" 
+         *ngIf="genres.length > 8"
+         (click)="toggleVisible('genres', genres.length)">
+         {{ getButtonLabel('genres', genres.length) }}
+         </button>
+         </ng-container>
+      </div>
+   </div>
+   <!-- filter by Countries -->
+   <div class="d-flex flex-column px-3">
+      <div class="d-flex justify-content-between mt-2 mb-3" >
+         <!-- Countries text -->
+         <p class="m-0 font-SemiBold-s16 text-white d-flex align-items-center gap-1" data-bs-toggle="collapse" href="#countriesDisplay" role="button"
+         aria-expanded="false" aria-controls="countriesDisplay">
+         Choose Country
+            <i class="iC-Nav-Dropdown-Icon iC-S10 img-Background-Contain d-flex"></i>
+         </p>
+      </div>
+      <!-- Countries checkboxes -->
+      <div  class="collapse transition-smooth show text-center" id="countriesDisplay">
+         <ng-container *ngIf="allCountries$ | async as countries">
+         <div class="d-flex row flex-column">
+            <div class="d-flex gap-2 col-6 mw-fit-content" *ngFor="let country of countries | slice:0:visibleCounts['countries']">
+               <input 
+               class="form-check-input cursor-click"
+               type="checkbox" [id]="'country' + country.iso_3166_1"
+               value="option1"
+               (change)="updateCheckboxFilter('country', country.iso_3166_1, $event)"
+               (checked)="selectedFilters.country.includes(country.iso_3166_1)">
+               <label class="text-white font-Regular-s16" [for]="'country' + country.iso_3166_1">{{country.english_name}}</label>
+            </div>
+         </div>
+         <button class="bg-secondary-color btn btn-outline-light mt-2 w-100 text-white" 
+         *ngIf="countries.length > 8"
+         (click)="toggleVisible('countries', countries.length)">
+         {{ getButtonLabel('countries', countries.length) }}
+         </button>
+         </ng-container>
+      </div>
+   </div>
+   <!-- filter by Languages -->
+   <div class="d-flex flex-column px-3">
+      <div class="d-flex justify-content-between mt-2 mb-3" >
+         <!-- Languages text -->
+         <p class="m-0 font-SemiBold-s16 text-white d-flex align-items-center gap-1" data-bs-toggle="collapse" href="#languagesDisplay" role="button"
+         aria-expanded="false" aria-controls="languagesDisplay">
+         Choose Language
+            <i class="iC-Nav-Dropdown-Icon iC-S10 img-Background-Contain d-flex"></i>
+         </p>
+      </div>
+      <!-- Languages checkboxes -->
+      <div  class="collapse transition-smooth show text-center" id="languagesDisplay">
+         <ng-container *ngIf="allLanguages$ | async as languages">
+         <div class="d-flex row flex-column">
+            <div class="d-flex gap-2 col-6 mw-fit-content" *ngFor="let lang of languages | slice:0:visibleCounts['languages']">
+               <input
+               class="form-check-input cursor-click "
+               type="checkbox" [id]="'language' + lang.iso_639_1"
+               value="option1"
+               (change)="updateCheckboxFilter('language', lang.iso_639_1, $event)"
+               (checked)="selectedFilters.language.includes(lang.iso_639_1)"  >
+               <label class="text-white font-Regular-s16" [for]="'language' + lang.iso_639_1">{{lang.english_name}}</label>
+            </div>
+         </div>
+         <button class="bg-secondary-color btn btn-outline-light mt-2 w-100 text-white" 
+         *ngIf="languages.length > 8"
+         (click)="toggleVisible('languages', languages.length)">
+         {{ getButtonLabel('languages', languages.length) }}
+         </button>
+         </ng-container>
+      </div>
+   </div>
+   <!--  filter with year -->
+   <div class="d-flex flex-column px-3">
+      <div class="d-flex justify-content-between mt-2 mb-3" >
+         <!-- years text -->
+         <p class="m-0 font-SemiBold-s16 text-white d-flex align-items-center gap-1" data-bs-toggle="collapse" href="#YearsrDisplay" role="button"
+         aria-expanded="false" aria-controls="YearsrDisplay">
+         Choose Year
+         <i class="iC-Nav-Dropdown-Icon iC-S10 img-Background-Contain d-flex"></i>
+         </p>
+      </div>
+      <!-- years checkboxes -->
+      <div  class="collapse transition-smooth show text-center" id="YearsrDisplay">
+         <div class="d-flex row">
+            <div class="d-flex gap-2 col-6 mw-fit-content" *ngFor="let year of years | slice:0:visibleCounts['years']">
+               <input class="form-check-input cursor-click"
+               type="checkbox"
+               [id]="'year' + year" 
+               (change)="updateCheckboxFilter('year', year, $event)"
+               (checked)="selectedFilters.year.includes(year)">
+               <label class="text-white font-Regular-s16" [for]="'year' + year">{{year}}</label>
+            </div>
+            <button
+            class="bg-secondary-color btn btn-outline-light mt-2 w-100 text-white" *ngIf="years.length > 8" (click)="toggleVisible('years', years.length)">
+            {{ getButtonLabel('years', years.length) }}
+            </button>
+         </div>
+      </div>
+   </div>
+</div>

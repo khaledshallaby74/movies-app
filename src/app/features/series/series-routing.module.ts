@@ -13,7 +13,7 @@ const routes: Routes = [
     path: "", 
     component: SeriesComponent, 
     children: [
-      { path: "", component: SeriesHomeComponent }, 
+      { path: "", component: SeriesHomeComponent, data: { mediaType: 'tv' } }, 
       { path: ":id/:title", component: MovieDetailsComponent, data: { type: 'tv' } },
       { path: ":id/season/:season_number",  canActivate: [authGuard],  component: SeasonDetailsComponent },
       { 

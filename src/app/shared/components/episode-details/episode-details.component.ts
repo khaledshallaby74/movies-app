@@ -11,12 +11,11 @@ export class EpisodeDetailsComponent implements OnInit {
   episode: any = {};
   tvId: any;
   seasonNum: any;
-  imgPrifix: string = "https://image.tmdb.org/t/p/original"; // نستخدم Original لأعلى جودة
+  imgPrifix: string = "https://image.tmdb.org/t/p/original"; 
 
   constructor(private _ActivatedRoute: ActivatedRoute, private _PostsService: PostsService) {}
 
   ngOnInit(): void {
-    // سحب البيانات من الـ URL
     this.tvId = this._ActivatedRoute.snapshot.params['id'];
     this.seasonNum = this._ActivatedRoute.snapshot.params['season_number'];
     const episodeNum = this._ActivatedRoute.snapshot.params['episode_number'];
